@@ -1,2 +1,2 @@
 # aframe-maltajs
-The code presented on a workshop for MaltaJS at March of 2018
+This is the code presented on an A-FRAME workshop for MaltaJS at March of 2018.

@@ -1,0 +1,46 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>A-Frame - MaltaJS</title>
+<meta name="description" content="A-Frame MaltaJS">
+
+<script src="./aframe.js"></script>
+<script src="./aframe-effects.js"></script>
+<script src="./animate.js"></script>
+<script src="./clubber.js"></script>
+<script src="./music.js"></script>
+
+</head>
+
+<body>
+
+<a-scene
+	effects="bloom, colors, film"
+    film="sIntensity: 0.03; nIntensity: 0.2" 
+    colors="mode:hqprtom; mul: 0.66 0.5 0.66; pow: 1 1.33 1.66; quant: 0.3 0.3 0.1; orig: 0.33 0.66 0.66"
+    bloom="strength: 0.5; radius:1.2"
+    music="src: audio"
+>
+<a-assets>
+    <a-asset-item id="buddha-obj" src="./buddha.obj"></a-asset-item>
+	<a-mixin id="red" material="color: red; metalness: 0.33"></a-mixin>
+	<a-mixin id="blue" material="color: blue; metalness: 0.66"></a-mixin>
+</a-assets>
+<a-entity  animate="posSpeed:1; rotSpeed:2; posPhase:0.25;" position="0 -6 -30" >
+    <a-entity 
+        rotation="-90 90 -90" 
+        scale="0.1 0.1 0.1" 
+        obj-model="obj: #buddha-obj" 
+        material="shader:standard; metalness:0.33; roughness: 0.1; color: #6F6"
+    >
+    </a-entity>
+    <a-sphere mixin="red" radius="1" animate="posSpeed:-3;radius:6; posMod:1;" position="0 8 0"></a-sphere>
+    <a-sphere mixin="blue" radius="1" animate="posSpeed:-3;posPhase:0.5;radius:6; posMod:1;" position="0 4 0"></a-sphere>
+</a-entity>
+<a-sky radius="40" src="skydome.jpg"></a-sky>
+</a-scene>
+
+</body>
+</html>
